@@ -1,0 +1,6 @@
+packages:
+  - 'packages/*'
+
+catalog:
+  '@types/node': ^22.9.3
+  typescript: ^5.7.2

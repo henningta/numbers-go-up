@@ -1,0 +1,31 @@
+{
+  "name": "@numbers-go-up/site",
+  "version": "1.0.0",
+  "description": "Numbers go up",
+  "author": "Travis Henning",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "idle",
+    "idle-game",
+    "idle game",
+    "numbers-go-up",
+    "numbers go up"
+  ],
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@numbers-go-up/game": "workspace:*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "catalog:",
+    "vite": "^5.4.11",
+    "vite-plugin-node-polyfills": "^0.22.0"
+  }
+}

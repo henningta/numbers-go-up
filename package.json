@@ -1,0 +1,23 @@
+{
+  "name": "numbers-go-up",
+  "version": "1.0.0",
+  "description": "Numbers go up",
+  "author": "Travis Henning",
+  "license": "MIT",
+  "keywords": [
+    "idle",
+    "idle-game",
+    "idle game",
+    "numbers-go-up",
+    "numbers go up"
+  ],
+  "scripts": {
+    "build:game": "cd packages/game && pnpm build",
+    "dev": "cd packages/site && pnpm dev"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "pretty-quick": "^4.0.0"
+  },
+  "packageManager": "pnpm@9.14.2+sha256.06e65a4965baff6d6097f9c8f75c35f6d420974dbc03d775009056a69edfd271"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "@numbers-go-up/game",
+  "version": "1.0.0",
+  "description": "Numbers go up",
+  "author": "Travis Henning",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "idle",
+    "idle-game",
+    "idle game",
+    "numbers-go-up",
+    "numbers go up"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "dependencies": {
+    "mainloop.js": "^1.0.4"
+  },
+  "devDependencies": {
+    "@types/mainloop.js": "^1.0.7",
+    "@types/node": "catalog:",
+    "tsup": "^8.3.5",
+    "typescript": "catalog:"
+  }
+}
