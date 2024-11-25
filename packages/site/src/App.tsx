@@ -4,8 +4,8 @@ import { Game } from '@numbers-go-up/game';
 const game = new Game();
 
 const App: React.FC = () => {
-  const [numsPerSecond, setNumsPerSecond] = useState(0);
-  const [score, setScore] = useState('0');
+  const [numsPerSecond, setNumsPerSecond] = useState(game.getNumsPerSecond());
+  const [score, setScore] = useState(game.formatScore());
 
   useEffect(() => {
     game.start();
@@ -21,7 +21,7 @@ const App: React.FC = () => {
       game.off('boost', updateNps);
       game.stop();
     };
-  });
+  }, []);
 
   return (
     <div>

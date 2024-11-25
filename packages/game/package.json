@@ -15,7 +15,8 @@
     "numbers go up"
   ],
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "dev": "pnpm build --watch"
   },
   "dependencies": {
     "mainloop.js": "^1.0.4"
