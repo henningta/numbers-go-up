@@ -7,19 +7,26 @@ const game = new Game();
 const App: React.FC = () => {
   const [numsPerSecond, setNumsPerSecond] = useState(game.getNumsPerSecond());
   const [score, setScore] = useState(game.formatScore());
+  const [scorePerSecond, setScorePerSecond] = useState(
+    game.formatScorePerSecond(),
+  );
 
   useEffect(() => {
     game.start();
 
     const updateScore = (score: string) => setScore(score);
     const updateNps = (nps: number) => setNumsPerSecond(nps);
+    const updateSps = (sps: string) => setScorePerSecond(sps);
 
     game.on('scoreUpdate', updateScore);
     game.on('boost', updateNps);
+    game.on('scorePerSecondUpdate', updateSps);
 
     return () => {
       game.off('scoreUpdate', updateScore);
       game.off('boost', updateNps);
+      game.off('scorePerSecondUpdate', updateSps);
+
       game.stop();
     };
   }, []);
@@ -33,7 +40,7 @@ const App: React.FC = () => {
           <button className="clickButton" onClick={() => game.buttonClick()}>
             CLICK
           </button>
-          <div> SPS: </div>
+          <div> SPS: {scorePerSecond}</div>
         </div>
       </div>
       <div className="upgrades">
