@@ -6,13 +6,15 @@ class Game extends EventEmitter {
   private precision = 0;
   private roundedScore = '0';
   private score = 0;
+  private upgradeCost = 1;
+  private gameSpeed = 10;
 
   constructor() {
     super();
 
     Mainloop.setUpdate((delta) => {
       // update score
-      this.score += (delta * this.numsPerSecond) / 1000;
+      this.score += (delta * this.numsPerSecond * this.gameSpeed) / 1000;
 
       // emit scoreUpdate if it changed
       const newRoundedScore = this.formatScore();
@@ -42,6 +44,18 @@ class Game extends EventEmitter {
   public boost() {
     this.numsPerSecond += 0.1;
     this.emit('boost', this.numsPerSecond);
+  }     
+
+  public buyUpgrade() {
+    if (this.score-this.upgradeCost>0){
+      this.score -= this.upgradeCost; 
+      this.upgradeCost = this.upgradeCost*2
+      this.boost()
+    } 
+  }
+
+  public getUpgradeCost() {
+    return this.upgradeCost;
   }
 }
 

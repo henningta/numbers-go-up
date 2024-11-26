@@ -29,6 +29,8 @@ const App: React.FC = () => {
       <div>Numbers per second: {numsPerSecond.toFixed(1)}</div>
       <div>Score: {score}</div>
       <button onClick={() => game.boost()}>Moar Numbers</button>
+      <div>Upgrade Cost: {game.getUpgradeCost()}</div>
+      <button onClick={() => game.buyUpgrade()}>Upgrade</button>
     </div>
   );
 };
