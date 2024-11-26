@@ -6,8 +6,11 @@ class Game extends EventEmitter {
   private precision = 0;
   private roundedScore = '0';
   private score = 0;
-  private upgradeCost = 1;
-  private gameSpeed = 10;
+  private clickUpgradeCost = 1;
+  private boostUpgradeCost = 1;
+  private gameSpeed = 1;
+  private clickValue = 1;
+
 
   constructor() {
     super();
@@ -42,20 +45,45 @@ class Game extends EventEmitter {
   }
 
   public boost() {
-    this.numsPerSecond += 0.1;
+    this.numsPerSecond += 1;
     this.emit('boost', this.numsPerSecond);
   }     
 
-  public buyUpgrade() {
-    if (this.score-this.upgradeCost>0){
-      this.score -= this.upgradeCost; 
-      this.upgradeCost = this.upgradeCost*2
+  public buyClickUpgrade() {
+    if (this.score-this.clickUpgradeCost>0){
+      this.score -= this.clickUpgradeCost; 
+      this.clickUpgradeCost = this.clickUpgradeCost*2
+      this.clickValue += 1;
+    } 
+  }
+
+  public buyBoostUpgrade() {
+    if (this.score-this.boostUpgradeCost>0){
+      this.score -= this.boostUpgradeCost; 
+      this.boostUpgradeCost = this.boostUpgradeCost*2
       this.boost()
     } 
   }
 
-  public getUpgradeCost() {
-    return this.upgradeCost;
+  public buttonClick() {
+    this.score += this.clickValue;
+
+  }
+
+  public getClickUpgradeCost() {
+    return this.clickUpgradeCost;
+  }
+
+  public getClickValue() {
+    return this.clickValue;
+  }
+
+  public getBoostUpgradeCost() {
+    return this.boostUpgradeCost;
+  }
+
+  public getBoostValue() {
+    return this.numsPerSecond;
   }
 }
 

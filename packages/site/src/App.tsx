@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Game } from '@numbers-go-up/game';
+import './App.css';
 
 const game = new Game();
 
@@ -26,11 +27,31 @@ const App: React.FC = () => {
   return (
     <div>
       <div>Numbers go up</div>
+      <div className="container">
+        <div>
+          <div> Score: {score} </div>
+          <button className="clickButton" onClick={() => game.buttonClick()}>
+            CLICK
+          </button>
+          <div> SPS: </div>
+        </div>
+      </div>
+      <div className="upgrades">
+        <button onClick={() => game.buyClickUpgrade()}>Upgrade Click </button>
+        {' Cost '}
+        {game.getClickUpgradeCost()}
+        {' Value '}
+        {game.getClickValue()}
+        <button onClick={() => game.buyBoostUpgrade()}>Upgrade Boost </button>
+        {' Cost '}
+        {game.getBoostUpgradeCost()}
+        {' Value '}
+        {game.getBoostValue()}
+      </div>
       <div>Numbers per second: {numsPerSecond.toFixed(1)}</div>
       <div>Score: {score}</div>
       <button onClick={() => game.boost()}>Moar Numbers</button>
-      <div>Upgrade Cost: {game.getUpgradeCost()}</div>
-      <button onClick={() => game.buyUpgrade()}>Upgrade</button>
+      {/* <button onClick={() => game.buyUpgrade()}>Upgrade</button> */}
     </div>
   );
 };
